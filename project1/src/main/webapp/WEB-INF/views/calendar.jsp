@@ -6,73 +6,116 @@
 <meta charset="UTF-8">
 <title>calendar</title>
 
-    <style>
-.calendar {
-  width: 350px;
-  border: 1px solid #ddd;
-  font-family: 'Arial', sans-serif;
-}
+ <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-.calendar-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #3f51b5;
-  color: white;
-  padding: 10px 15px;
-  font-weight: bold;
-}
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #f0f0f0;
+      padding: 30px;
+    }
 
-.calendar-header button {
-  background: transparent;
-  border: none;
-  color: white;
-  font-size: 18px;
-  cursor: pointer;
-  user-select: none;
-}
+    .calendar {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
 
-.calendar-body {
-  padding: 10px 15px;
-}
+    .calendar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #3f51b5;
+      color: white;
+      padding: 20px 30px;
+      font-size: 24px;
+      font-weight: bold;
+    }
 
-.weekdays {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  text-align: center;
-  font-weight: bold;
-  color: #555;
-  margin-bottom: 8px;
-}
+    .calendar-header button {
+      background: transparent;
+      border: none;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+    }
 
-.days {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 5px;
-}
+    .calendar-body {
+      padding: 20px 30px;
+    }
 
-.day, .empty {
-  text-align: center;
-  padding: 12px 0;
-  border-radius: 4px;
-  cursor: pointer;
-  user-select: none;
-}
+    .weekdays {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      text-align: center;
+      font-weight: bold;
+      color: #555;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
 
-.day:hover {
-  background-color: #e0e0e0;
-}
+    .days {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 10px;
+    }
 
-.empty {
-  background: none;
-  cursor: default;
-}
+    .day, .empty {
+      text-align: center;
+      padding: 25px 0;
+      border-radius: 6px;
+      font-size: 18px;
+      background: #f9f9f9;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
 
-    </style>
+    .day:hover {
+      background-color: #e0e0e0;
+    }
+
+    .empty {
+      background: none;
+      cursor: default;
+    }
+
+    @media (max-width: 768px) {
+      .calendar {
+        max-width: 100%;
+        padding: 10px;
+      }
+
+      .calendar-header {
+        font-size: 20px;
+        padding: 15px 20px;
+      }
+
+      .calendar-body {
+        padding: 15px 20px;
+      }
+
+      .day, .empty {
+        padding: 15px 0;
+        font-size: 16px;
+      }
+
+      .weekdays {
+        font-size: 16px;
+      }
+    }
+  </style>
 
 </head>
 <body>
-    <div class="calendar">
+
+<div class="calendar">
   <div class="calendar-header">
     <button class="prev">&lt;</button>
     <div class="month-year">2025년 6월</div>
@@ -84,8 +127,8 @@
     </div>
     <div class="days">
       <!-- 빈 칸 -->
-      <div class="empty"></div> <!-- 1일이 일요일이면 월~토까지 빈칸을 넣어야 함 -->
-      <!-- 날짜들 -->
+      <div class="empty"></div>
+      <!-- 날짜 -->
       <div class="day">1</div>
       <div class="day">2</div>
       <div class="day">3</div>
@@ -119,5 +162,6 @@
     </div>
   </div>
 </div>
+
 </body>
 </html>
