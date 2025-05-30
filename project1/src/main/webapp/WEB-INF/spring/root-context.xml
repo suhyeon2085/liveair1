@@ -40,6 +40,10 @@
 
 	<context:component-scan base-package="org.zerock.aop"></context:component-scan>
 	
+	<!-- calendar -->
+	<context:component-scan base-package="org.zerock" />
+	<!-- calendar -->
+	
 	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
 
 </beans>
